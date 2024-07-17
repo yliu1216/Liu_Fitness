@@ -15,7 +15,7 @@ require('dotenv').config();
 const bcrypSalt = bcrypt.genSaltSync(12);
 const jwtSecret = process.env.JWT_SECRET;
 const url = process.env.MONGO_URL;
-
+const port = process.env.PORT || 4000;
 // defining the Express app
 const app = express();
 
@@ -33,12 +33,17 @@ app.use(morgan('combined'));
 app.use(express.json());
 app.use(CookieParser());
 app.use(cors({
-    credentials:true,
-    origin:['http://192.168.56.1:3000', 'http://localhost:3000', 'https://exercisedb.p.rapidapi.com', "http://localhost:3001",'https://liufitness.netlify.app', 'https://liu-fitness.vercel.app/'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'],
-    
-     
-}))
+  credentials: true,
+  origin: [
+      'http://192.168.56.1:3000',
+      'http://localhost:3000',
+      'https://exercisedb.p.rapidapi.com',
+      'http://localhost:3001',
+      'https://liufitness.netlify.app',
+      'https://liu-fitness.vercel.app'
+  ],
+  allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'],
+}));
 
 const exercise_url = process.env.EXERCISE_URL;
 const bodypart_url = process.env.BODYPART_URL;
@@ -233,6 +238,6 @@ app.post('/login', async (req, res) => {
 })
 
 // starting the server
-app.listen(4000, () => {
+app.listen(port, () => {
   console.log('listening on port 4000');
 });
