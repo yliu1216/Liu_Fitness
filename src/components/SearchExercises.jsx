@@ -15,7 +15,7 @@ export default function SearchExercise() {
   useEffect(() => {
     const ExerciseData = async () => {
       try {
-        const response = await axios.get(`${baseURL}/exerciseBodyPart`);
+        const response = await axios.get(`/exerciseBodyPart`);
         const data = response.data;
         console.log(data);
         setBodyPart(["all", ...data]);

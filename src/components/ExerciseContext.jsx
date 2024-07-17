@@ -29,7 +29,7 @@ export function ExerciseProvider({ children }) {
         try {
           let response;
           if (selectedBodyPart === "all") {
-            response = await axios.get(`${baseURL}/exerciseData`);
+            response = await axios.get(`/exerciseData`);
           } else {
             response = await axios.get(
               `/exerciseBodyPartName?bodyPart=${selectedBodyPart}`
