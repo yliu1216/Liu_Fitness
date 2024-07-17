@@ -10,11 +10,12 @@ export default function SearchExercise() {
   const [exercise, setExercise] = useState([]);
   const [bodyPart, setBodyPart] = useState([]);
   const [selectedBodyPart, setSelectedBodyPart] = useState("all");
+  const baseURL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:4000';
 
   useEffect(() => {
     const ExerciseData = async () => {
       try {
-        const response = await axios.get("/exerciseBodyPart");
+        const response = await axios.get(`${baseURL}/exerciseBodyPart`);
         const data = response.data;
         console.log(data);
         setBodyPart(["all", ...data]);
