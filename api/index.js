@@ -34,7 +34,7 @@ app.use(express.json());
 app.use(CookieParser());
 app.use(cors({
     credentials:true,
-    origin:['http://192.168.56.1:3000', 'http://localhost:3000', 'https://exercisedb.p.rapidapi.com', "http://localhost:3001",'https://liufitness.netlify.app'],
+    origin:['http://192.168.56.1:3000', 'http://localhost:3000', 'https://exercisedb.p.rapidapi.com', "http://localhost:3001",'https://liufitness.netlify.app', 'https://liu-fitness.vercel.app/'],
     allowedHeaders: ['Content-Type', 'Authorization', 'Access-Control-Allow-Credentials'],
     
      
