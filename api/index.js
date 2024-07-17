@@ -75,7 +75,7 @@ const bodypart_url = process.env.BODYPART_URL;
 
   const bodyPartOptions={
     method: 'GET',
-    url: 'https://exercisedb.p.rapidapi.com/exercises/bodyPartList',
+    url: bodypart_url,
     headers: {
       'x-rapidapi-key': process.env.RAPID_API_KEY,
       'x-rapidapi-host':process.env.RAPID_API_HOST,

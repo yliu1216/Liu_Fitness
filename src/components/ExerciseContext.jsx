@@ -7,11 +7,12 @@ export function ExerciseProvider({ children }) {
   const [exerciseData, setExerciseData] = useState([]);
   const [selectedBodyPart, setSelectedBodyPart] = useState(null);
   const [selectedExerciseData, setSelectedExerciseData] = useState([]);
+  const baseURL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:4000';
 
   useEffect(() => {
     const fetchExerciseData = async () => {
       try {
-        const response = await axios.get("/exerciseData");
+        const response = await axios.get(`${baseURL}/exerciseData`);
         const data = response.data;
         setExerciseData(data);
       } catch (error) {
@@ -28,7 +29,7 @@ export function ExerciseProvider({ children }) {
         try {
           let response;
           if (selectedBodyPart === "all") {
-            response = await axios.get("/exerciseData");
+            response = await axios.get(`${baseURL}/exerciseData`);
           } else {
             response = await axios.get(
               `/exerciseBodyPartName?bodyPart=${selectedBodyPart}`
